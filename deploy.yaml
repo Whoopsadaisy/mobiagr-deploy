@@ -3,24 +3,24 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: ashuapp1
-  name: ashuapp1
-  namespace: ashu-project
+    app: alexapp1
+  name: alexapp1
+  namespace: alex
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ashuapp1
+      app: alexapp1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: ashuapp1
+        app: alexapp1
     spec:
       containers:
       - image: dockerashu/ashumobi:appv1
-        name: ashumobi
+        name: alexmobi
         ports:
         - containerPort: 80
         resources: {}
@@ -33,9 +33,9 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: ashusvc1
-  name: ashusvc1
-  namespace: ashu-project
+    app: alexsvc1
+  name: alexsvc1
+  namespace: alex
 spec:
   ports:
   - name: 1234-80
@@ -43,7 +43,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector: # need to match label of pods 
-    app: ashuapp1
+    app: alexapp1
   type: NodePort
 status:
   loadBalancer: {}
